@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: your-app
+    app: golang-ci-cd
   ports:
     - protocol: TCP
       port: 80
