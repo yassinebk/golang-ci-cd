@@ -63,25 +63,25 @@ jobs:
                 "prepareCmd": "mkdir -p dist && go build -o dist/webserver ."
               }]
             ]
-          }
+          },
+          "success": [
+          {
+            "path": "@semantic-release/exec",
+            "cmd": "echo 'new_release_published=true' >> $GITHUB_ENV && echo 'new_release_version=${nextRelease.version}' >> $GITHUB_ENV"
+            }
+          ],
+          "fail": [
+            {
+              "path": "@semantic-release/exec",
+              "cmd": "echo 'new_release_published=false' >> $GITHUB_ENV"
+            }
+          ]
           EOF
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - name: Set Outputs
-        id: set-output
-        run: |
-          if npx semantic-release --dry-run | grep -q 'Published release'; then
-            echo "new_release_published=true" >> $GITHUB_OUTPUT
-          else
-            echo "new_release_published=false" >> $GITHUB_OUTPUT
-          fi
-
-          # We'll record the newest tag as well
-          echo "new_release_version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-
       - name: Release
         id: semantic
         env:
