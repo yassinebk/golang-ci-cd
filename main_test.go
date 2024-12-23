@@ -117,4 +117,28 @@ func TestMetricsHandler(t *testing.T) {
 	if err := json.NewDecoder(w.Body).Decode(&response); err != nil {
 		t.Fatalf("Failed to decode response: %v", err)
 	}
+
+	if response.MemoryAlloc != 0 {
+		t.Errorf("Expected MemoryAlloc 0, got %d", response.MemoryAlloc)
+	}
+
+	if response.Goroutines != 0 {
+		t.Errorf("Expected Goroutines 0, got %d", response.Goroutines)
+	}
+}
+
+func TestMainFunction(t *testing.T) {
+	go func() {
+		main()
+	}()
+
+	resp, err := http.Get("http://localhost:8080/health")
+	if err != nil {
+		t.Fatalf("Failed to make GET request: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, resp.StatusCode)
+	}
 }

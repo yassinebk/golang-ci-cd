@@ -47,13 +47,22 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(health)
+	err := json.NewEncoder(w).Encode(health)
+	if err != nil {
+		fmt.Printf("Error encoding health: %v", err)
+	}
 }
 
 // infoHandler returns detailed server information
 func infoHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(serverInfo)
+	err := json.NewEncoder(w).Encode(serverInfo)
+	if err != nil {
+		_, err := w.Write([]byte("error"))
+		if err != nil {
+			fmt.Printf("Error encoding info:")
+		}
+	}
 }
 
 // metricsHandler returns basic metrics
@@ -67,7 +76,10 @@ func metricsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(metrics)
+	err := json.NewEncoder(w).Encode(metrics)
+	if err != nil {
+		fmt.Printf("Error encoding metrics: %v", err)
+	}
 }
 
 func main() {
@@ -81,6 +93,10 @@ func main() {
 	mux.HandleFunc("/metrics", metricsHandler)
 
 	// Start the server
-	fmt.Fprintf(os.Stdout, "Web Server started. Listening on 0.0.0.0:80\n")
-	http.ListenAndServe(":80", mux)
+	fmt.Fprintf(os.Stdout, "Web Server started. Listening on 0.0.0.0:8080\n")
+	err := http.ListenAndServe(":8080", mux)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error starting server: %v\n", err)
+		os.Exit(1)
+	}
 }
