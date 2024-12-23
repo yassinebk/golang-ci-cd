@@ -41,8 +41,10 @@ jobs:
 
       - name: Run Gosec Security Scanner
         uses: securego/gosec@master
+        env:
+          GO111MODULE: on
         with:
-          args: ./...
+          args: "-no-fail -fmt sarif -out results.sarif ./..."
 
       - name: Run nancy for dependency scanning
         run: |
@@ -73,8 +75,9 @@ jobs:
           fi
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.out
           flags: unittests
 

@@ -53,7 +53,10 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 // infoHandler returns detailed server information
 func infoHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(serverInfo)
+	err := json.NewEncoder(w).Encode(serverInfo)
+	if err != nil {
+		w.Write([]byte("error"))
+	}
 }
 
 // metricsHandler returns basic metrics
@@ -82,5 +85,9 @@ func main() {
 
 	// Start the server
 	fmt.Fprintf(os.Stdout, "Web Server started. Listening on 0.0.0.0:80\n")
-	http.ListenAndServe(":80", mux)
+	err := http.ListenAndServe(":80", mux)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error starting server: %v\n", err)
+		os.Exit(1)
+	}
 }
