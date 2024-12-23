@@ -25,14 +25,14 @@
     [
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo 'new_release_published=true' >> $GITHUB_ENV && echo 'new_release_version=${nextRelease.version}' >> $GITHUB_ENV",
+        "cmd": "echo 'new_release_published=true' >> $GITHUB_OUTPUT && echo 'new_release_version=${nextRelease.version}' >> $GITHUB_OUTPUT",
       },
     ],
   "fail":
     [
       {
         "path": "@semantic-release/exec",
-        "cmd": "echo 'new_release_published=false' >> $GITHUB_ENV",
+        "cmd": "echo 'new_release_published=false' >> $GITHUB_OUTPUT",
       },
     ],
 }
