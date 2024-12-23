@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.5.1...v1.6.0) (2024-12-23)
+
+
+### Features
+
+* add k8s-manifests ([ccb5e1b](https://github.com/yassinebk/golang-ci-cd/commit/ccb5e1bf97ab5181e51f15902723f26ecf64e779))
+
 ## [1.5.1](https://github.com/yassinebk/golang-ci-cd/compare/v1.5.0...v1.5.1) (2024-12-23)
 
 
