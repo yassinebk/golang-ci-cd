@@ -132,7 +132,7 @@ func TestMainFunction(t *testing.T) {
 		main()
 	}()
 
-	resp, err := http.Get("http://localhost:80/health")
+	resp, err := http.Get("http://localhost:8080/health")
 	if err != nil {
 		t.Fatalf("Failed to make GET request: %v", err)
 	}

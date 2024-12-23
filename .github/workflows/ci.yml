@@ -8,7 +8,7 @@ on:
 
 env:
   GO_VERSION: "1.23.4"
-  GOLANGCI_LINT_VERSION: v1.55.2
+  GOLANGCI_LINT_VERSION: v1.62.2
   COVERAGE_THRESHOLD: 80
 
 jobs:
@@ -126,11 +126,11 @@ jobs:
       - name: Build and run container
         run: |
           docker build -t go-webserver .
-          docker run -d -p 80:80 go-webserver
+          docker run -d -p 8080:8080 go-webserver
           sleep 5  # Wait for container to start
 
       - name: Run integration tests
         run: |
-          curl -f http://localhost:80/health || exit 1
-          curl -f http://localhost:80/info || exit 1
-          curl -f http://localhost:80/metrics || exit 1
+          curl -f http://localhost:8080/health || exit 1
+          curl -f http://localhost:8080/info || exit 1
+          curl -f http://localhost:8080/metrics || exit 1
