@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.3.0...v1.4.0) (2024-12-23)
+
+
+### Features
+
+* setoutput before running ([e1851f6](https://github.com/yassinebk/golang-ci-cd/commit/e1851f67b8149c5ba9020216da5d634121ad1d9a))
+
 # [1.3.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.2.0...v1.3.0) (2024-12-23)
 
 
