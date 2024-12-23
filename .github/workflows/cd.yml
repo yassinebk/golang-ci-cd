@@ -77,6 +77,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
+      - name: Set Outputs
+        id: set-output
+        run: |
+          echo "new_release_published=$(npx semantic-release --dry-run | grep -q 'Published release' && echo 'true' || echo 'false')" >> $GITHUB_ENV
+          echo "new_release_version=$(git describe --tags)" >> $GITHUB_ENV
+
   publish:
     name: Publish Docker Image
     needs: semantic-release
