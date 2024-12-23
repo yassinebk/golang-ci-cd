@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.4.0...v1.5.0) (2024-12-23)
+
+
+### Features
+
+* move .releasrc to repo ([ae2eb02](https://github.com/yassinebk/golang-ci-cd/commit/ae2eb023d327a176ae7bac9ffef1483295d21735))
+* update cd ([b9c5f24](https://github.com/yassinebk/golang-ci-cd/commit/b9c5f248f3976cdbb34510269487d840d63a6381))
+* update cd ([3c38f5b](https://github.com/yassinebk/golang-ci-cd/commit/3c38f5becac1481d07ef2559dc826ccb421088c7))
+
 # [1.4.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.3.0...v1.4.0) (2024-12-23)
 
 
