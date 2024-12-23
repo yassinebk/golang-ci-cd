@@ -1,0 +1,38 @@
+{
+  "branches": ["main"],
+  "plugins":
+    [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/github",
+        { "assets": [{ "path": "dist/webserver", "label": "Binary" }] },
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": ["CHANGELOG.md"],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+        },
+      ],
+      [
+        "@semantic-release/exec",
+        { "prepareCmd": "mkdir -p dist && go build -o dist/webserver ." },
+      ],
+    ],
+  "success":
+    [
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "echo 'new_release_published=true' >> $GITHUB_ENV && echo 'new_release_version=${nextRelease.version}' >> $GITHUB_ENV",
+      },
+    ],
+  "fail":
+    [
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "echo 'new_release_published=false' >> $GITHUB_ENV",
+      },
+    ],
+}
