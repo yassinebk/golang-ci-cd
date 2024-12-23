@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/yassinebk/golang-ci-cd/compare/v1.5.0...v1.5.1) (2024-12-23)
+
+
+### Bug Fixes
+
+* update output in workflow ([ff6b72d](https://github.com/yassinebk/golang-ci-cd/commit/ff6b72de6dabecf7900c0e0427af3f41a3d481f9))
+
 # [1.5.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.4.0...v1.5.0) (2024-12-23)
 
 
