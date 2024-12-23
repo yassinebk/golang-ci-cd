@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.1.0...v1.2.0) (2024-12-23)
+
+
+### Features
+
+* update cd ([2311fcb](https://github.com/yassinebk/golang-ci-cd/commit/2311fcbf6c354cb97b8d3c01f3391aa88e62456a))
+
 # [1.1.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.0.0...v1.1.0) (2024-12-23)
 
 
