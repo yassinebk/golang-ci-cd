@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.7.0...v1.8.0) (2024-12-23)
+
+
+### Features
+
+* update deployment ([4422e79](https://github.com/yassinebk/golang-ci-cd/commit/4422e7912a9f6f19c4c199b03449f0a60ac7ec7d))
+
 # [1.7.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.6.0...v1.7.0) (2024-12-23)
 
 
