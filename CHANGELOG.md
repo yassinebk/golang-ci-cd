@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.6.0...v1.7.0) (2024-12-23)
+
+
+### Features
+
+* make the service a node port ([5cc063f](https://github.com/yassinebk/golang-ci-cd/commit/5cc063f1276e08c4aefe492ace30ebfa0dff046c))
+
 # [1.6.0](https://github.com/yassinebk/golang-ci-cd/compare/v1.5.1...v1.6.0) (2024-12-23)
 
 
